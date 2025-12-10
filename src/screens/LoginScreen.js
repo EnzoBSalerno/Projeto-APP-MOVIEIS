@@ -58,7 +58,7 @@ const LoginScreen = ({ navigation }) => {
   const login = () => {
     // Simulação de login
     console.log('Login realizado com:', inputs);
-    // navigation.navigate('Home'); // Quando a navegação estiver pronta
+    navigation.navigate('Main');
   };
 
   return (

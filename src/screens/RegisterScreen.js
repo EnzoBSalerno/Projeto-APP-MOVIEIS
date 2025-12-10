@@ -92,9 +92,8 @@ const RegisterScreen = ({ navigation }) => {
   const register = () => {
     console.log('Registro realizado:', inputs);
     // Simular cadastro e voltar para login ou ir para home
-    // navigation.navigate('Home');
     Alert.alert("Sucesso", "Conta criada com sucesso!", [
-      { text: "OK", onPress: () => navigation.navigate('Login') }
+      { text: "OK", onPress: () => navigation.navigate('Main') }
     ]);
   };
 
