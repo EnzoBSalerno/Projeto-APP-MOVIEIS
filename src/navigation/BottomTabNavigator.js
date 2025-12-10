@@ -4,6 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { COLORS } from '../constants/theme';
 
 import HomeScreen from '../screens/HomeScreen';
+import ProfileScreen from '../screens/ProfileScreen';
 
 // Placeholder screens for other tabs
 import { View, Text } from 'react-native';
@@ -60,10 +61,26 @@ const BottomTabNavigator = () => {
         },
       })}
     >
-      <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Search" children={() => <PlaceholderScreen name="Busca" />} />
-      <Tab.Screen name="Orders" children={() => <PlaceholderScreen name="Pedidos" />} />
-      <Tab.Screen name="Profile" children={() => <PlaceholderScreen name="Perfil" />} />
+      <Tab.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{ tabBarAccessibilityLabel: 'Home Tab' }}
+      />
+      <Tab.Screen
+        name="Search"
+        children={() => <PlaceholderScreen name="Busca" />}
+        options={{ tabBarAccessibilityLabel: 'Search Tab' }}
+      />
+      <Tab.Screen
+        name="Orders"
+        children={() => <PlaceholderScreen name="Pedidos" />}
+        options={{ tabBarAccessibilityLabel: 'Orders Tab' }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={{ tabBarAccessibilityLabel: 'Profile Tab' }}
+      />
     </Tab.Navigator>
   );
 };

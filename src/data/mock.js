@@ -63,7 +63,12 @@ export const SHOPS = [
 
 export const USER = {
   name: 'Jules',
+  email: 'jules@email.com',
   avatar: 'https://randomuser.me/api/portraits/women/44.jpg',
+  addresses: [
+    { label: 'Casa', address: 'Rua das Flores, 123' },
+    { label: 'Trabalho', address: 'Av. Paulista, 1000' }
+  ]
 };
 
 export const PAYMENT_METHODS = [
