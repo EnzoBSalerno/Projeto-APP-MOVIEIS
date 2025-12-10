@@ -15,8 +15,11 @@ import { Ionicons } from '@expo/vector-icons';
 import { COLORS, SIZES, FONTS } from '../constants/theme';
 import Input from '../components/Input';
 import Button from '../components/Button';
+import { useUser } from '../context/UserContext';
+import { USER as DEFAULT_USER } from '../data/mock';
 
 const LoginScreen = ({ navigation }) => {
+  const { setUser } = useUser();
   const [inputs, setInputs] = React.useState({
     email: '',
     password: '',
@@ -58,6 +61,19 @@ const LoginScreen = ({ navigation }) => {
   const login = () => {
     // Simulação de login
     console.log('Login realizado com:', inputs);
+
+    // Atualiza o contexto do usuário
+    // Usa o email como nome se não tiver nome, ou "Usuário"
+    // Mantém o resto do mock (endereços, etc)
+    const nameFromEmail = inputs.email.split('@')[0];
+    const capitalizedName = nameFromEmail.charAt(0).toUpperCase() + nameFromEmail.slice(1);
+
+    setUser({
+      ...DEFAULT_USER,
+      name: capitalizedName,
+      email: inputs.email,
+    });
+
     navigation.navigate('Main');
   };
 

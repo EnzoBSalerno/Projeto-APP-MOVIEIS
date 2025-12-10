@@ -11,12 +11,14 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 
 import { COLORS, SIZES, FONTS } from '../constants/theme';
-import { CATEGORIES, SHOPS, USER } from '../data/mock';
+import { CATEGORIES, SHOPS } from '../data/mock';
 import SearchBar from '../components/SearchBar';
 import CategoryItem from '../components/CategoryItem';
 import ShopCard from '../components/ShopCard';
+import { useUser } from '../context/UserContext';
 
 const HomeScreen = ({ navigation }) => {
+  const { user } = useUser();
 
   const renderHeader = () => (
     <View style={styles.headerContainer}>
@@ -27,10 +29,10 @@ const HomeScreen = ({ navigation }) => {
             <Ionicons name="gift" size={18} color={COLORS.primary} style={{ marginRight: 6 }} />
             <Text style={styles.appName}>GiftNow</Text>
           </View>
-          <Text style={styles.greeting}>Olá, {USER.name}</Text>
+          <Text style={styles.greeting}>Olá, {user?.name}</Text>
         </View>
         <TouchableOpacity>
-           <Image source={{ uri: USER.avatar }} style={styles.avatar} />
+           <Image source={{ uri: user?.avatar }} style={styles.avatar} />
         </TouchableOpacity>
       </View>
 

@@ -11,11 +11,12 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 
 import { COLORS, SIZES, FONTS } from '../constants/theme';
-import { USER } from '../data/mock';
+import { useUser } from '../context/UserContext';
 import ProfileMenuItem from '../components/ProfileMenuItem';
 import ClubGiftCard from '../components/ClubGiftCard';
 
 const ProfileScreen = ({ navigation }) => {
+  const { user } = useUser();
 
   const handleLogout = () => {
     Alert.alert(
@@ -43,10 +44,10 @@ const ProfileScreen = ({ navigation }) => {
         >
             {/* Header */}
             <View style={styles.header}>
-                <Image source={{ uri: USER.avatar }} style={styles.avatar} />
+                <Image source={{ uri: user?.avatar }} style={styles.avatar} />
                 <View style={styles.userInfo}>
-                    <Text style={styles.userName}>{USER.name}</Text>
-                    <Text style={styles.userEmail}>{USER.email}</Text>
+                    <Text style={styles.userName}>{user?.name}</Text>
+                    <Text style={styles.userEmail}>{user?.email}</Text>
                     <Text style={styles.editProfile}>Ver e editar dados pessoais</Text>
                 </View>
                 <Ionicons name="chevron-forward" size={20} color={COLORS.textLight} />
@@ -75,7 +76,7 @@ const ProfileScreen = ({ navigation }) => {
                 <ProfileMenuItem
                     icon="location-outline"
                     title="Endereços de entrega"
-                    subtitle={`${USER.addresses.length} endereços cadastrados`}
+                    subtitle={`${user?.addresses?.length || 0} endereços cadastrados`}
                     onPress={() => console.log('Endereços')}
                 />
             </View>

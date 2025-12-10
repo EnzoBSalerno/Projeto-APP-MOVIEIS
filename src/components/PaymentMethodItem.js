@@ -2,8 +2,12 @@ import React from 'react';
 import { TouchableOpacity, Text, StyleSheet, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { COLORS, SIZES, SHADOWS } from '../constants/theme';
+import { useUser } from '../context/UserContext';
 
 const PaymentMethodItem = ({ method, isSelected, onPress }) => {
+  const { user } = useUser();
+  const cardHolderName = method.name || user?.name || 'Titular do Cartão';
+
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -25,7 +29,7 @@ const PaymentMethodItem = ({ method, isSelected, onPress }) => {
         {method.type === 'CREDIT_CARD' ? (
             <View>
                 <Text style={styles.title}>{method.brand} •••• {method.last4}</Text>
-                <Text style={styles.subtitle}>{method.name}</Text>
+                <Text style={styles.subtitle}>{cardHolderName.toUpperCase()}</Text>
             </View>
         ) : (
             <Text style={styles.title}>Pagar com Pix</Text>

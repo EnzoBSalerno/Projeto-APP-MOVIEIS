@@ -77,7 +77,7 @@ export const PAYMENT_METHODS = [
     type: 'CREDIT_CARD',
     brand: 'Mastercard',
     last4: '4589',
-    name: 'JULES SILVA',
+    name: null, // Let the UI handle the name from context
     icon: 'card-outline',
   },
   {
@@ -85,7 +85,7 @@ export const PAYMENT_METHODS = [
     type: 'CREDIT_CARD',
     brand: 'Visa',
     last4: '1234',
-    name: 'JULES SILVA',
+    name: null,
     icon: 'card-outline',
   },
   {
