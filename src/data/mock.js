@@ -65,3 +65,35 @@ export const USER = {
   name: 'Jules',
   avatar: 'https://randomuser.me/api/portraits/women/44.jpg',
 };
+
+export const PAYMENT_METHODS = [
+  {
+    id: '1',
+    type: 'CREDIT_CARD',
+    brand: 'Mastercard',
+    last4: '4589',
+    name: 'JULES SILVA',
+    icon: 'card-outline',
+  },
+  {
+    id: '2',
+    type: 'CREDIT_CARD',
+    brand: 'Visa',
+    last4: '1234',
+    name: 'JULES SILVA',
+    icon: 'card-outline',
+  },
+  {
+    id: 'pix',
+    type: 'PIX',
+    name: 'Pix',
+    icon: 'qr-code-outline',
+  }
+];
+
+export const ORDER_SUMMARY = {
+  subtotal: 'R$ 149,90',
+  delivery: 'R$ 12,00',
+  discount: '- R$ 10,00',
+  total: 'R$ 151,90',
+};
