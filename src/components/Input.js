@@ -15,7 +15,7 @@ const Input = ({
   ...props
 }) => {
   const [isFocused, setIsFocused] = React.useState(false);
-  const [hidePassword, setHidePassword] = React.useState(password);
+  const [hidePassword, setHidePassword] = React.useState(!!password);
 
   return (
     <View style={styles.container}>
@@ -54,7 +54,7 @@ const Input = ({
           placeholderTextColor={COLORS.textLight}
           value={value}
           onChangeText={onChangeText}
-          cursorColor={COLORS.primary}
+          selectionColor={COLORS.primary}
           {...props}
         />
 
