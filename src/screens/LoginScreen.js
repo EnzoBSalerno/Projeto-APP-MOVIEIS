@@ -117,7 +117,7 @@ const LoginScreen = ({ navigation }) => {
                     <Text style={styles.signupText}>Não tem conta? </Text>
                     <Text
                         style={[styles.signupText, { color: COLORS.primary, fontWeight: 'bold' }]}
-                        onPress={() => console.log('Ir para cadastro')}
+                        onPress={() => navigation.navigate('Register')}
                     >
                         Criar conta
                     </Text>
