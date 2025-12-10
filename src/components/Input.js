@@ -12,7 +12,9 @@ const Input = ({
   onChangeText,
   iconName,
   onFocus = () => {},
-  ...props
+  keyboardType,
+  autoCapitalize,
+  maxLength,
 }) => {
   const [isFocused, setIsFocused] = React.useState(false);
   const [hidePassword, setHidePassword] = React.useState(!!password);
@@ -55,7 +57,9 @@ const Input = ({
           value={value}
           onChangeText={onChangeText}
           selectionColor={COLORS.primary}
-          {...props}
+          keyboardType={keyboardType}
+          autoCapitalize={autoCapitalize}
+          maxLength={maxLength}
         />
 
         {password && (
